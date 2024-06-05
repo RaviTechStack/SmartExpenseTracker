@@ -1,0 +1,64 @@
+:root{
+    --bg_color : #22273b;
+    --card_color : #30344f;
+    --dark_color : #262a41;
+    
+}
+
+.full-view{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg_color) ;
+    color: white;
+    gap: 1.5rem;
+}
+.add-cash-container{
+    width: 60%;
+    height: 60%;
+    box-shadow: 1px 0 1px black, -1px -1px 1px black ;
+    background-color: var(--dark_color);
+}
+.add-cash-container form{
+    width: 90%;
+    height: 80%;
+    font-size: 1.2rem;
+    gap: 2.5rem;
+}
+.add-cash-container form input{
+    display: block;
+    background-color: transparent;
+    outline: none;
+    width: 100%;
+    color: white;
+    font-size: 1.1rem;
+    margin-top: .4rem;
+    border: none;
+    border-bottom: 1px solid white;
+}
+.add-cash-container form > div{
+    width: 80%;
+}
+.add-cash-container form > div button{
+    padding: .7rem 1.2rem;
+    background-color: rgb(0, 217, 0);
+    color: white;
+    font-weight: 700;
+    border-radius: 9px 0 9px 0;
+    outline: none;
+}
+
+.select{
+    padding: .7rem 1rem;
+    margin-left: 1rem;
+    background-color: #30344f;
+    color: white;
+    font-weight: 700;
+    text-transform: uppercase;
+
+}
+option{
+    border-radius: 1.5rem;
+}
+.center-select{
+    align-items: center;
+}

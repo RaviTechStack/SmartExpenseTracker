@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'history.css' %}">
+    <link rel="stylesheet" href="{% static 'futureexe.css' %}?{% now 'U' %}">
+</head>
+<body>
+    <section class="full-body flex">
+        <div class="left-part flex-col">
+            <div class="logo">
+
+                <h1>
+                    Transaction
+                    Record
+                </h1>
+            </div>
+            <div class="menu-btns flex-col">
+                <a href="/"><div>Overview </div></a>
+                <div class="border">Future Expenditure</div>
+                <a href="history"><div>Transacion History</div></a>
+            </div>
+            <div class="logout-btn">
+                <div><a href="logout">Logout</a></div>
+            </div>
+        </div>
+        <div class="right-part gap flex-col">
+            <div class="Info-btns flex"><button>Future Expenditure</button>
+                <button>Welcome {{user.username}}</button>
+            </div>
+            <div class="transaction-history flex-col">
+                <h2>Payable Expenditure in Future</h2>
+                <a href="addfutureexp" class="add-future-expense">ADD</a>
+                <div class="full-table-container">
+                    <table>
+                        <thead>
+                            <th>SrNo</th>
+                            <th>Amount</th>
+                            <th>Desc</th>
+                            <th>Status</th>
+                        </thead>
+                        <tbody>
+                            {% for exp in allExp %}
+
+                            <tr>
+                                <td>{{forloop.counter}}</td>
+                                <td>{{exp.exp_amt}}</td>
+                                <td>{{exp.exp_desc}}</td>
+                                <td class="status-btn"><a href="paid/{{exp.exp_id}}">Paid</a><a href="delete/{{exp.exp_id}}">Delete</a><a href="update/{{exp.exp_id}}">Update</a></td>
+                            </tr>
+                            {% endfor %}
+                            
+                        
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+    </section>
+    
+</body>
+</html>

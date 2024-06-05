@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}?{% now 'U' %}">
+    <link rel="stylesheet" href="{% static 'cash.css' %}?{% now 'U' %}">
+    <title>Add your Cash</title>
+</head>
+<body>
+    <div class="full-view flex-col center">
+        <h3>Add Your Cash</h3>
+        <div class="add-cash-container flex-col center">
+            <form action="{{action}}" method="post" class="center flex-col">
+                {% csrf_token %}
+                <div><label for="Amount">Amount</label>
+                    <input type="text" id="amount" name="amount"></div>
+                <div><label for="desc">Description</label>
+                    <input type="text" id="desc" name="desc"></div>
+                    <div class="flex center-select">
+                        <label for="trans-type">Transaction Type</label>
+                        <select name="trans-type" class="select center">
+                            <option value="note">Note</option>
+                            <option value="coin">Coin</option>
+                            <option value="bank">Bank</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+<div><button type="submit">Add Cash</button></div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

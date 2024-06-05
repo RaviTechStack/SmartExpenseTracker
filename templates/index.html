@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'style.css' %}?{% now 'U' %}">
+    <title>Record Your Each and Every Transaction</title>
+</head>
+
+<body>
+    {% if user.is_authenticated %}
+    <Section class="full-body flex">
+        <!-- Handling Left Part with buttons -->
+        <div class="left-part flex-col">
+            <div class="logo">
+
+                <h1>
+                    Transaction
+                    Record
+                </h1>
+            </div>
+            <div class="menu-btns flex-col">
+                <div class="border">Overview</div>
+                <a href="futureExpen"><div>Future Expenditure</div></a>
+                <a href="history"><div>Transacion History</div></a>
+            </div>
+            <div class="logout-btn">
+                <div><a href="logout">Logout</a></div>
+            </div>
+        </div>
+
+
+        <!-- Handling Right Part with Sub-section -->
+        <div class="right-part flex-col">
+            <!-- UPPERSIDES BUTTON -->
+            <div class="Info-btns flex"><button>Saving Overview</button>
+                <button>Welcome {{user.username}}</button>
+            </div>
+
+            <!-- AMOUNT DISPLAYING IN CARD -->
+            <div class="saving-display flex-col">
+                <div class="main-balance center flex-col">
+                    <img src="{% static './tranactionimg/bag.jpg' %}" alt="">
+                    <div class="saving-detail center flex-col">
+                        <h4>Total Saving</h4>
+                        <h2>₹{{total_cash}}.00/-</h2>
+                        <h5>{{usd}} USD</h5>
+
+                    </div>
+                <!-- DIVIDING CARD IN DIFFRENT CATEGORIES SUCH AS CASH , BANK ETC -->
+                </div>
+                <div class="sub-sections grid">
+                    <div class="notes center flex-col">
+                        <img src="{% static './tranactionimg/note.jpg' %}" alt="">
+                        <div class="money-detail center flex-col">
+                            <h5>Total Notes</h5>
+                            <h3>₹{{total_note}}.00/-</h3>
+                            <div class="action-btns flex">
+                                <a href="addnote">Deposit</a>
+                                <a href="withdrawnote">Withdraw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="coin center flex-col">
+                        <img src="{% static './tranactionimg/coin1.jpg' %}" alt="">
+                        <div class="money-detail center flex-col">
+                            <h5>Total Coin</h5>
+                            <h3>₹{{total_coin}}.00/-</h3>
+                            <div class="action-btns flex">
+                                <a href="addcoin">Deposit</a>
+                                <a href="withdrawcoin">Withdraw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bank center flex-col">
+                        <img src="{% static '/tranactionimg/bank.jpg' %}" alt="">
+                        <div class="money-detail center flex-col">
+                            <h5>Total Bank</h5>
+                            <h3>₹{{total_bank}}.00/-</h3>
+                            <div class="action-btns flex">
+                                <a href="addbank">Deposit</a>
+                                <a href="withdrawbank">Withdraw</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="other center flex-col">
+                        <img src="{% static './tranactionimg/investment.jpg'%}" alt="">
+                        <div class="money-detail center flex-col">
+                            <h5>Other Investment</h5>
+                            <h3>₹{{total_other}}.00/-</h3>
+                            <div class="action-btns flex">
+                                <a href="addother">Deposit</a>
+                                <a href="withdrawother">Withdraw</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- DISPLAYING RECENTS HISTORY OF TRANSACTION  -->
+            <div class="short-history center">
+                <h3>Recent Transaction</h3>
+                <div class="table-container">
+                <table>
+                    <thead>
+                        <th>SrNo</th>
+                        <th>Amount</th>
+                        <th>Desc</th>
+                        <th>Transaction Type</th>
+                        <th>Time</th>
+                    </thead>
+                    <tbody>
+                        {% for history in histories %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td class="{% if history.is_withdrwal %} red {% else %} normal {% endif %}">₹ {{history.trans_amt}}/-</td>
+                            <td>{{history.trans_desc}}</td>
+                            <td>{{history.trans_type}}</td>
+                            <td>{{history.trans_time}}</td>
+                        </tr>
+                        {% endfor %}
+                        
+                        
+                        <tr id="more-hist" >
+                            <td colspan="5"><a href="history"><button>View All</button></a></td>
+                            
+                        </tr>
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </Section>
+
+    {% else %}
+    <div class="form-body center">
+        <div class="form-container flex">
+            <div class="cover center flex-col">
+                <p class="cover-text">Don't have an Account ?</p>
+                <button class="move">signUp</button></div>
+            <div class="signin flex-col center">
+                <h3>Sign In</h3>
+                <form action="login" method = "post" class="flex-col center">
+                    {% csrf_token %}
+                    <div><label for="username">Username</label>
+                        <input type="text" id="username" name="username"></div>
+                    <div><label for="password">Password</label>
+                        <input type="text" id="password" name="password"></div>
+<div><button type="submit">signin</button></div>
+                </form>
+            </div>
+            <div class="signup flex-col center">
+                <h3>Sign Up</h3>
+                <form action="signup" method="post" class="flex-col center">
+                    {% csrf_token %}
+                    <div><label for="firstname">firstname</label>
+                        <input type="text" id="firstname" name="firstname"></div>
+                    <div><label for="lastname">lastname</label>
+                        <input type="text" id="lastname" name="lastname"></div>
+                    <div><label for="username1">Username</label>
+                        <input type="text" id="username1" name="username1"></div>
+                    <div><label for="password1"> Create Password</label>
+                        <input type="text" id="password1" name="password1"></div>
+                        <div><button type="submit">signup</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</body>
+<script src="{% static 'script.js' %}?{% now 'U' %}"></script>
+</html>

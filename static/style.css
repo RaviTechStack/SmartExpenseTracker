@@ -1,0 +1,324 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+a{
+    color: white;
+    text-decoration: none;
+}
+.red{
+    color: red;
+}
+
+/* UTILITIES CLASSES */
+:root{
+    --bg_color : #22273b;
+    --card_color : #30344f;
+    --dark_color : #262a41;
+    
+}
+.flex{
+    display: flex;
+}
+.flex-col{
+    display: flex;
+    flex-direction: column;
+}
+.center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.grid{
+    display: grid;
+}
+
+
+/* JAVASCRIPT CLASESS */
+.border{
+    border-left: 6px solid white;
+}
+
+/* NORMAL-CLASSES */
+
+.full-body{
+    width: 100%;
+    height: 100vh;
+    background-color: var(--bg_color);
+    color: white;
+    gap: .8rem;
+}
+.left-part{
+    align-items: center;
+    justify-content: space-between;
+    height: 100%;
+    padding: .9rem 0;
+    box-shadow: 1px 1px 1.5px black;
+
+}
+.logo{
+    width: 80%;
+}
+.logo h1{
+    text-align: center;
+
+}
+.menu-btns{
+    width: 100%;
+}
+.left-part > .menu-btns  div{
+    width: 100%;
+    padding: .9rem 1rem;
+    margin: .1rem 0;
+    background-color: var(--card_color);
+    box-shadow: 1px 1.5px 2.5px black;
+}
+
+.logout-btn{
+    width: 100%;
+}
+.logout-btn>div{
+    width: 100%;
+    padding: .9rem 1rem;
+    margin: .1rem 0;
+    background-color: var(--card_color);
+    box-shadow: 1px 1.5px 2.5px black;
+    text-align: center;
+   
+}
+.logout-btn>div>a{
+    text-decoration: none;
+    font-size: 1.1rem;
+    font-weight: 500;
+    color: white;
+}
+
+
+
+/* HANDLING RIGHT PART */
+.right-part{
+    width: 100%;
+    height: 100%;
+    padding: 0;
+}
+.Info-btns{
+    width: 100%;
+    justify-content: space-between;
+    height: 5%;
+    padding-right: .4rem;
+}
+.Info-btns button{
+    background-color: green;
+    border: none;
+    border-radius: 0 0 .6rem 0;
+    padding: .6rem 1.2rem;
+    color: white;
+    font-weight: 700;
+    box-shadow: 1px 1 1px black, -0px -1px 1px black ;
+
+}
+
+.saving-display{
+    width: 100%;
+    height: 75%;
+    padding: 1rem 0;
+    align-items: center;
+    gap: .5rem;
+}
+.main-balance{
+    width: 50%;
+    height: 38%;
+    gap: 1rem;
+    box-shadow: 1px 1px 1.5px black;
+    background-color: var(--dark_color);
+}
+.main-balance img{
+    width: 3rem;
+    mix-blend-mode: lighten;
+}
+.saving-detail{
+    font-weight: 400;
+    font-size: 1.5rem;
+}
+.saving-detail h2{
+    font-weight: 400;
+    font-size: 2.2rem;
+}
+.saving-detail h4, .saving-detail h5{
+    font-weight: 300;
+    font-size: 1.2rem;
+}
+.sub-sections{
+    place-items: center;
+    grid-template-columns: repeat(2, 1fr);
+    width: 100%;
+    height: 61.9%;
+}
+.sub-sections>div{
+    width: 60%;
+    height: 90%;
+    border-radius: 8px 8px 0 0;
+    box-shadow: 1px 1px 1.5px black;
+    background-color: var(--dark_color);
+    padding: .9rem 0;
+    gap: .5rem;
+}
+.sub-sections>div>img{
+    width: 2.2rem;
+    mix-blend-mode: lighten;
+}
+.notes{
+    border-top: 4px solid red;
+
+}
+
+.coin{
+    border-top: 4px solid rgb(1, 231, 1);
+}
+.bank{
+    border-top: 4px solid blue;
+}
+.other{
+    border-top: 4px solid yellow;
+}
+.money-detail{
+    width: 100%;
+}
+
+.money-detail>h5{
+    font-size: .85rem;
+    font-weight: 400;
+}
+.money-detail>h3{
+    font-size: 1.6rem;
+    font-weight: 300;
+}
+.action-btns{
+    width: 100%;
+    justify-content: space-around;
+    align-items: center;
+}
+.action-btns a{
+    padding: .4rem .7rem;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(0, 188, 0);
+    border-radius: 6px 0 6px 0;
+
+}
+.action-btns a:nth-child(2){
+    background-color: blue;
+}
+.short-history{
+    width: 100%;
+    flex-direction: column;
+    height:20%;
+    gap: .5rem;
+}
+
+.table-container{
+    height: 90%;
+    width: 100%;
+    
+    text-align: center;
+    overflow: scroll;
+}
+.short-history .table-container::-webkit-scrollbar{
+    display: none;
+}
+.short-history table{
+    width: 80%;
+    height: 100%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 1px 0 1px black, -1px -1px 1px black ;
+}
+
+.short-history table th{
+    background-color: var(--dark_color);
+}
+.short-history table th, td{
+    padding: .4rem .8rem;
+}
+.short-history table tr:nth-child(2n){
+    background-color: var(--card_color);
+}
+#more-hist{
+    text-align: end;
+}
+#more-hist button{
+    padding: .3rem .9rem;
+    background-color: blue;
+    color: white;
+    font-weight: 500;
+    border-radius: 7px;
+    outline: none;
+}
+
+/* HANDLING FORM FOR SIGN IN AND SIGN UP */ 
+.form-body{
+    width: 100%;
+    height: 100vh;
+    background-color: #22273b;
+   
+
+}
+.form-container{
+    width: 60%;
+    height: 60%;
+    background-color: var(--dark_color);
+    backdrop-filter: blur(12px);
+    box-shadow: 3px 0 3px black, -1px -1px 3px black ;
+    color: white;
+    
+}
+.form-container form{
+    width: 100%;
+    margin-top: 1rem;
+}
+.form-container form> div{
+    width: 70%;
+}
+.form-container form input{
+    display: block;
+    margin-bottom: .7rem;
+    background-color: transparent;
+    border: none;
+    border-bottom: 1px solid rgb(255, 255, 255);
+    width: 100%;
+    color: white;
+    outline: none;
+}
+.signin, .signup{
+    width: 50%;
+    height: 100%;
+    gap: 1rem;
+}
+.form-container form> div> button{
+    padding: .4rem .7rem;
+    font-weight: 700;
+    border-radius: 7px 0 7px 0;
+    background-color: rgb(0, 213, 0);
+    color: white;
+}
+
+.cover{
+    width: 50%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    right: 0;
+    background-color: var(--card_color);
+    transition: all .4s linear;
+    gap: 1rem;
+    color: white;
+}
+.cover button{
+    padding: .6rem 1rem;
+    border-radius: 8px 0 8px 0;
+    background-color: blue;
+    font-weight: 700;
+    color: white;
+}

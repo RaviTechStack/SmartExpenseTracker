@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+    {% load static %}
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tranaction History</title>
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <link rel="stylesheet" href="{% static 'history.css' %}">
+
+</head>
+<body>
+    <section class="full-body flex">
+        <div class="left-part flex-col">
+            <div class="logo">
+
+                <h1>
+                    Transaction
+                    Record
+                </h1>
+            </div>
+            <div class="menu-btns flex-col">
+                <a href="/"><div>Overview </div></a>
+                <a href="futureExpen"><div>Future Expenditure</div></a>
+                <div class="border">Transacion History</div>
+            </div>
+            <div class="logout-btn">
+                <div><a href="logout">Logout</a></div>
+            </div>
+        </div>
+        <div class="right-part gap flex-col">
+            <div class="Info-btns flex"><button>Tranaction History</button>
+                <button>Welcome {{user.username}}</button>
+            </div>
+            <div class="transaction-history flex-col">
+                <h2>Tranaction History</h2>
+                <div class="full-table-container">
+                    <table>
+                        <thead>
+                            <th>SrNo</th>
+                            <th>Amount</th>
+                            <th>Desc</th>
+                            <th>Transaction Type</th>
+                            <th>Time</th>
+                        </thead>
+                        <tbody>
+                            {% for history in histories %}
+                        <tr>
+                            <td>{{forloop.counter}}</td>
+                            <td>₹ {{history.trans_amt}}/-</td>
+                            <td>{{history.trans_desc}}</td>
+                            <td>{{history.trans_type}}</td>
+                            <td>{{history.trans_time}}</td>
+                        </tr>
+                        {% endfor %}
+                            
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+</body>
+</html>

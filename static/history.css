@@ -1,0 +1,42 @@
+:root{
+    --bg_color : #22273b;
+    --card_color : #30344f;
+    --dark_color : #262a41;
+    
+}
+.gap{
+    gap: 1rem;
+}
+.transaction-history{
+    width: 90%;
+    height: 90%;
+    box-shadow: 1px 0 3px rgb(0, 0, 0), -.5px -.5px 3px black ;
+    border-radius: .9rem .9rem 0 0 ;
+    align-items: center;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    margin: 0 auto;
+    overflow: scroll;
+}
+.transaction-history::-webkit-scrollbar{
+    display: none;
+}
+.full-table-container{
+    width: 100%;
+
+}
+.full-table-container table{
+    text-align: center;
+    margin: 0 auto;
+    width: 80%;
+    box-shadow: .5px 0 .5px black, -.5px -.5px .5px black ;
+}
+.full-table-container table thead{
+    background-color:var(--dark_color);
+}
+.full-table-container table thead th{
+    padding: .6rem 1rem;
+}
+.full-table-container table tbody tr:nth-child(2n){
+    background-color: var(--card_color);
+}

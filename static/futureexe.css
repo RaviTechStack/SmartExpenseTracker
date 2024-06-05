@@ -1,0 +1,26 @@
+.status-btn a{
+    margin:0 .5rem;
+    padding: .3rem .5rem;
+    font-weight: 700;
+    color: white;
+    background-color: rgb(1, 206, 1);
+    border-radius: 7px 0 7px 0;
+    outline: 0;
+}
+.status-btn{
+    padding: .5rem 0;
+}
+
+.status-btn a:nth-child(2){
+    background-color: red;
+}
+.status-btn a:nth-child(3){
+    background-color: blue;
+}
+.add-future-expense{
+    padding: .5rem .9rem;
+    background-color: #30344f;
+    box-shadow: .5px 0px 2px white, -.5px -.5px 2px white;
+    border-radius: 9px 0 9px 0;
+    font-weight: 800;
+}

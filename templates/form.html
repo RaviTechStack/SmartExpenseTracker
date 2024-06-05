@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>form</title>
+</head>
+<body>
+    <div class="form-body center">
+        <div class="form-container flex">
+            <div class="cover center flex-col">
+                <p class="cover-text">Don't have an Account ?</p>
+                <button class="move">signUp</button></div>
+            <div class="signin flex-col center">
+                <h3>Sign In</h3>
+                <form action="login" method = "post" class="flex-col center">
+                    
+                    <div><label for="username">Username</label>
+                        <input type="text" id="username" name="username"></div>
+                    <div><label for="password">Password</label>
+                        <input type="text" id="password" name="password"></div>
+<div><button type="submit"><a href="./index.html">signin</a></button></div>
+                </form>
+            </div>
+            <div class="signup flex-col center">
+                <h3>Sign Up</h3>
+                <form action="signup" method="post" class="flex-col center">
+                    {% csrf_token %}
+                    <div><label for="firstname">firstname</label>
+                        <input type="text" id="firstname" name="firstname"></div>
+                    <div><label for="lastname">lastname</label>
+                        <input type="text" id="lastname" name="lastname"></div>
+                    <div><label for="username1">Username</label>
+                        <input type="text" id="username1" name="username1"></div>
+                    <div><label for="password1"> Create Password</label>
+                        <input type="text" id="password1" name="password1"></div>
+                        <div><button type="submit">signup</button></div>
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="./script.js"></script>
+</html>
